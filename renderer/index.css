@@ -1,0 +1,123 @@
+html, body {
+  height: 100%;
+  background-color: #1a2847;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  color: white;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+.nav {
+  display: flex;
+  flex-flow: column;
+  background: #344363;
+  width: 20%;
+  float: left;
+  height: inherit;
+}
+
+.nav-list {
+  /* display: inline-block; */
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.nav-logo {
+  font-size: 1.5vw;
+  padding: 6% 6%;
+}
+
+ul {
+  list-style: none;
+}
+
+li a img {
+  width: 7%;
+  margin: 0 5% 0 0;
+}
+
+a {
+  padding: 4% 4%;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+a:hover {
+  /* transition:  1s; */
+  transition: background-color .5s;
+  background-color: #455985;
+  cursor: pointer;
+}
+
+a.selected {
+  background-color: #455985;
+}
+
+main {
+  float: left;
+  overflow: auto;
+  min-height: inherit;
+  height: inherit;
+  width: 80%;
+}
+
+.content-div {
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, .1);
+  margin: 0 2%;
+  padding: 1%;
+}
+
+.flag-name-container {
+  display: flex;
+  height: 25%;
+  margin: 2%;
+}
+
+#flag-container {
+  width: 20%;
+  border-radius: 5px;
+}
+
+#name-container {
+  margin-left: 1%;
+  display: flex;
+  align-items: center;
+  font-size: 250%
+}
+
+.general-map-container, .clr-container {
+  display: flex;
+  margin: 2%;
+  min-height: 65%;
+  padding: 0;
+  background: none;
+}
+
+.general-info {
+  display: inline-flex;
+  min-width: 30%;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-right: 2%;
+  padding: 1%;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, .1);
+}
+
+.info {
+  font-size: 130%;
+  margin: 2% 5%;
+}
+
+.google-map {
+  flex-grow: 1;
+  border-radius: 5px;
+}

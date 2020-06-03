@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" /> -->
+    <link rel="stylesheet" type="text/css" href="index.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav-logo">
+        <h3>Country List</h3>
+      </div>
+      <div class="nav-list">
+        <ul id="countries">
+          <script>
+            require('./index.js');
+          </script>
+        </ul>
+      </div>
+    </nav>
+    <main id="parent-country-container">
+      <div class="flag-name-container content-div">
+        <img id="flag-container" src="https://placehold.it/250x150" alt="flag"/>
+        <div id="name-container">
+          Country Name
+        </div>
+      </div>
+      <div class="general-map-container content-div">
+        <div class="general-info inner-content-div">
+          <div>
+            <u>Capital:</u> <div id="capital" class="info"></div>
+          </div>
+          <div>
+            <u>Population:</u> <div id="population" class="info"></div>
+          </div>
+          <div>
+            <u>Area:</u> <div id="area" class="info"></div>
+          </div>
+          <div>
+            <u>Region:</u> <div id="region" class="info"></div>
+          </div>
+          <div>
+            <u>Subregion:</u> <div id="subregion" class="info"></div>
+          </div>
+        </div>
+        <div id="googleMaps" class="google-map inner-content-div">
+          <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdacDWt4Jhw5d9N5riTfiN7tv94RcPVSQ&callback=initMap" type="text/javascript"></script>
+        </div>
+      </div>
+      <div  style="min-height: 30%; max-height: 30%;" class="clr-container content-div">
+        <div id="c-container" class="general-info">
+          <h3><u>Currencies</u></h3>
+          <div style="height: 100%; display: flex; flex-direction: column; justify-content: space-evenly;" id="currencies">
+
+          </div>
+        </div>
+        <div style="flex-grow: 1;" id="l-container" class="general-info">
+          <h3><u>Languages</u></h3>
+          <div style="height: 100%; display: flex; flex-direction: column; justify-content: space-evenly;" id="languages">
+
+          </div>
+        </div>
+        <div style="margin: 0; flex-grow: 1;" id="r-container" class="general-info">
+          <h3><u>Regional Blocs</u></h3>
+          <div style="height: 100%; display: flex; flex-direction: column; justify-content: space-evenly;" id="regional-blocs">
+
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
