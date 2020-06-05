@@ -1,53 +1,32 @@
-var url = "https://restcountries.eu/rest/v2/all"
+const countries = require('./countries')
 var map
-var countries = JSON.parse(localStorage.getItem('countries'))
 
 
-if (countries) {
-  getCountries(countries)
-} else {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = () => {
-    if (xhttp.readyState == 4 && xhttp.status == 200) {
-      var countries = JSON.parse(xhttp.responseText)
 
-      getCountries(countries)
-      localStorage.setItem('countries', JSON.stringify(countries))
-    }
-  }
+var ul = document.getElementById('countries')
 
-  xhttp.open('GET', url, true);
-  xhttp.send();
+for (var i = 0; i < countries.length; i++) {
+
+  if (countries[i].name === "Israel")
+    continue
+
+  var li = document.createElement("LI")
+  var img = document.createElement("IMG")
+  var a = document.createElement("A")
+  var textNode = document.createTextNode(countries[i].name)
+
+  img.setAttribute("src", countries[i].flag)
+  ul.appendChild(li)
+  li.appendChild(a)
+  a.appendChild(img)
+  a.appendChild(textNode);
+  a.setAttribute("title", countries[i].name)
+
+
+  a.addEventListener("click", (country => function(e) { CountryClicked(e, country) })(countries[i]), false)
+
 }
 
-
-
-function getCountries(countries){
-
-  var ul = document.getElementById('countries')
-
-  for (var i = 0; i < countries.length; i++) {
-
-    if (countries[i].name === "Israel")
-      continue
-
-    var li = document.createElement("LI")
-    var img = document.createElement("IMG")
-    var a = document.createElement("A")
-    var textNode = document.createTextNode(countries[i].name)
-
-    img.setAttribute("src", countries[i].flag)
-    ul.appendChild(li)
-    li.appendChild(a)
-    a.appendChild(img)
-    a.appendChild(textNode);
-    a.setAttribute("title", countries[i].name)
-
-
-    a.addEventListener("click", (country => function(e) { CountryClicked(e, country) })(countries[i]), false)
-
-  }
-}
 
 function CountryClicked(e, country) {
 
@@ -57,7 +36,7 @@ function CountryClicked(e, country) {
     selectedItem.classList.remove('selected')
   e.target.classList.add('selected')
 
-  // Pass the values of the chosen country to the appropraite tags
+  // DOM elements
   var flag = document.getElementById("flag-container")
   var name = document.getElementById("name-container")
   var capital = document.getElementById("capital")
