@@ -1,7 +1,11 @@
 const {app, BrowserWindow} = require('electron')
 const windowStateKeeper = require('electron-window-state')
+const updater = require('./renderer/updater')
 
 function createWindow() {
+
+  setTimeout(() => { updater() }, 3000)
+
 
   let state = windowStateKeeper({
     defaultWidth: 1080, defaultHeight: 900
