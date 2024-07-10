@@ -15,7 +15,7 @@
   "author": "OrD",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^15.5.5",
+    "electron": "^22.3.25",
     "electron-builder": "^22.7.0",
     "nodemon": "^2.0.3"
   },
